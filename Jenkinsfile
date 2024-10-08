@@ -1,38 +1,38 @@
-pipeline {
-    agent any
+// pipeline {
+//     agent any
 
-    stages {
-        // Step 1: Clone the repository from Git
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/your-repo/simple-nodejs-project.git'
-            }
-        }
+//     stages {
+//         // Step 1: Clone the repository from Git
+//         stage('Clone Repository') {
+//             steps {
+//                 git 'https://github.com/your-repo/simple-nodejs-project.git'
+//             }
+//         }
 
-        // Step 2: Build the Docker image using the Dockerfile
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Build the Docker image from the repository
-                    dockerImage = docker.build("your-dockerhub-username/simple-node-app")
-                }
-            }
-        }
+//         // Step 2: Build the Docker image using the Dockerfile
+//         stage('Build Docker Image') {
+//             steps {
+//                 script {
+//                     // Build the Docker image from the repository
+//                     dockerImage = docker.build("your-dockerhub-username/simple-node-app")
+//                 }
+//             }
+//         }
 
-        // Step 3: Deploy the Docker container on EC2 B over SSH
-        stage('Deploy to EC2 B') {
-            steps {
-                sshagent(['ec2-b-ssh-credentials-id']) {
-                    sh '''
-                    # SSH into EC2 B and run Docker commands
-                    ssh -o StrictHostKeyChecking=no ec2-user@<EC2-B-Public-IP> \
-                    "docker pull your-dockerhub-username/simple-node-app && docker run -d -p 3000:3000 your-dockerhub-username/simple-node-app"
-                    '''
-                }
-            }
-        }
-    }
-}
+//         // Step 3: Deploy the Docker container on EC2 B over SSH
+//         stage('Deploy to EC2 B') {
+//             steps {
+//                 sshagent(['ec2-b-ssh-credentials-id']) {
+//                     sh '''
+//                     # SSH into EC2 B and run Docker commands
+//                     ssh -o StrictHostKeyChecking=no ec2-user@<EC2-B-Public-IP> \
+//                     "docker pull your-dockerhub-username/simple-node-app && docker run -d -p 3000:3000 your-dockerhub-username/simple-node-app"
+//                     '''
+//                 }
+//             }
+//         }
+//     }
+// }
 
 
 pipeline {
