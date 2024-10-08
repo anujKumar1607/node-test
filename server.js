@@ -6,6 +6,6 @@ app.get("/", (req, res, next) => {
   res.send("Hi FRom Node");
 });
 
-app.listen(5000, () => {
-  console.log("app is running on 5000 port");
+app.listen(9000, () => {
+  console.log("app is running on 9000 port");
 });
