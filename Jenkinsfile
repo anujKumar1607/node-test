@@ -12,9 +12,8 @@ pipeline {
         //step 1 clone the repository from git
 
         stage("Clone Repository"){
-            steps {
-                // Checkout code from Bitbucket
-                git branch: 'development', credentialsId: 'bitbucketId', url: 'https://anujcool@bitbucket.org/anujcool/droyl-backend.git'
+            steps{
+                git branch: 'master', credentialsId: 'Github', url: 'https://github.com/anujKumar1607/node-test.git' 
             }
         }
 
