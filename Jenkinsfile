@@ -50,7 +50,7 @@ pipeline {
 
         stage("Clone Repository"){
             steps{
-                git 'https://github.com/anujKumar1607/node-test'
+                git branch: 'master', url: 'https://github.com/anujKumar1607/node-test'
             }
         }
 
